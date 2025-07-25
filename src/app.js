@@ -6,7 +6,7 @@ const cors = require("cors");
 
 dotenv.config();
 if (!process.env.JWT_SECRET) {
-    console.warn("⚠️  JWT_SECRET is not defined in your .env file!");
+    console.warn("JWT_SECRET is not defined in your .env file!");
 }
 
 class App {
@@ -37,7 +37,7 @@ class App {
 
     // start the server
     start() {
-        const PORT = process.env.APP_PORT || 3000;
+        const PORT = process.env.APP_PORT || 3001;
         this.app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         })
