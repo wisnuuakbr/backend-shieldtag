@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const routes = require("./routes/route");
 const config = require("./config/dbConfig");
 const cors = require("cors");
+const sanitizeBody = require('./middlewares/xssSanitizer');
 
 dotenv.config();
 if (!process.env.JWT_SECRET) {
@@ -20,6 +21,7 @@ class App {
     setMiddleware() {
         this.app.use(cors());
         this.app.use(express.json());
+        this.app.use(sanitizeBody);
     }
 
     setRoutes() {
